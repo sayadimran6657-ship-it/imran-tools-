@@ -1254,33 +1254,144 @@ function scanQR(){
   });
 }
 
+/* QR SCANNER */
+
+let qrStream = null;
+let qrAnimation = null;
+
+async function scanQR(){
+
+  const result = document.getElementById("scannerResult");
+
+  if(!("BarcodeDetector" in window)){
+    result.innerHTML =
+      "اس browser میں QR Scanner support نہیں ہے۔ Chrome کا نیا version استعمال کریں۔";
+    return;
+  }
+
+  result.innerHTML = `
+    <p>کیمرہ شروع ہو رہا ہے...</p>
+
+    <video id="qrVideo"
+      autoplay
+      playsinline
+      style="width:100%;max-width:400px;border-radius:12px;">
+    </video>
+
+    <br><br>
+
+    <button class="tool-btn" onclick="stopQRScanner()">
+      Scanner بند کریں
+    </button>
+  `;
+
+  const video = document.getElementById("qrVideo");
+
+  try{
+
+    qrStream = await navigator.mediaDevices.getUserMedia({
+      video:{
+        facingMode:"environment"
+      }
+    });
+
+    video.srcObject = qrStream;
+
+    await video.play();
+
+    const detector = new BarcodeDetector({
+      formats:["qr_code"]
+    });
+
+    async function detectQR(){
+
+      if(!qrStream) return;
+
+      try{
+
+        const codes = await detector.detect(video);
+
+        if(codes.length > 0){
+
+          const qrValue = codes[0].rawValue;
+
+          stopCameraOnly();
+
+          result.innerHTML = `
+            <strong>QR Code مل گیا! ✅</strong>
+            <br><br>
+            <div style="word-break:break-all;">
+              ${qrValue}
+            </div>
+            <br>
+            <button class="tool-btn" onclick="scanQR()">
+              دوبارہ Scan کریں
+            </button>
+          `;
+
+          if(/^https?:\/\//i.test(qrValue)){
+
+            result.innerHTML += `
+              <br><br>
+              <a class="download"
+                href="${qrValue}"
+                target="_blank"
+                rel="noopener">
+                Link کھولیں
+              </a>
+            `;
+          }
+
+          return;
+        }
+
+      }catch(error){
+
+        console.error("QR detection error:",error);
+
+      }
+
+      qrAnimation = requestAnimationFrame(detectQR);
+    }
+
+    detectQR();
+
+  }catch(error){
+
+    result.innerHTML =
+      "Camera access نہیں ہو سکا۔ Browser میں Camera Permission Allow کریں۔";
+
+    console.error(error);
+  }
+}
+
+
+function stopCameraOnly(){
+
+  if(qrAnimation){
+
+    cancelAnimationFrame(qrAnimation);
+
+    qrAnimation = null;
+  }
+
+  if(qrStream){
+
+    qrStream.getTracks().forEach(track => track.stop());
+
+    qrStream = null;
+  }
+}
+
+
 function stopQRScanner(){
 
-  if(window.qrStream){
-
-    window.qrStream.getTracks().forEach(track => track.stop());
-
-    window.qrStream = null;
-  }
+  stopCameraOnly();
 
   document.getElementById("scannerResult").innerHTML =
     "Scanner بند کر دیا گیا۔";
 }
 
-  const result=document.getElementById("scannerResult");
-
-  if("BarcodeDetector" in window){
-
-    result.innerHTML=
-      "QR scanner support is available in this browser. Camera permission may be required.";
-
-  }else{
-
-    result.innerHTML=
-      "QR camera scanning is not supported by this browser. Try Chrome on a supported device.";
-
-  }
-}
 
 
 /* IMAGE CROP */
