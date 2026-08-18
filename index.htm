@@ -2,414 +2,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMRAN TOOLS - Free Online Tools</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f4f7fb;color:#222}
-header{background:linear-gradient(135deg,#0b5cff,#663cff);color:white;padding:50px 20px;text-align:center}
-header h1{font-size:42px;margin-bottom:10px}
-header p{font-size:18px;margin-bottom:25px}
-.search{width:90%;max-width:600px;padding:15px 20px;border:0;border-radius:30px;font-size:16px;outline:0}
-.container{width:90%;max-width:1100px;margin:40px auto}
-.section-title{text-align:center;margin-bottom:25px;font-size:28px}
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.tool{background:white;padding:25px;border-radius:15px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:.3s}
-.tool:hover{transform:translateY(-5px)}
-.icon{font-size:40px;margin-bottom:15px}
-.tool h3{margin-bottom:10px}
-.tool p{color:#666;font-size:14px;margin-bottom:15px}
-.tool button{background:#0b5cff;color:white;border:0;padding:10px 20px;border-radius:8px;cursor:pointer}
-.tool button:hover{background:#003bb5}
-footer{margin-top:50px;background:#111827;color:white;text-align:center;padding:25px}
+  <title>Imran Tools | Free Online Tools</title>
+  <meta name="description" content="Imran Tools - Free online PDF, image, QR code, calculator and utility tools. Fast, simple and easy to use.">
 
-.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.6);padding:20px}
-.modal-box{background:white;max-width:600px;margin:5% auto;padding:25px;border-radius:15px;position:relative}
-.close{position:absolute;right:15px;top:10px;font-size:28px;cursor:pointer}
-.modal-box h2{margin-bottom:20px}
-.modal-box input,.modal-box textarea,.modal-box select{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:8px}
-.action{background:#0b5cff;color:white;border:0;padding:12px 18px;border-radius:8px;cursor:pointer;margin-top:10px}
-.result{margin-top:15px;padding:12px;background:#f1f5f9;border-radius:8px}
-canvas{max-width:100%;margin-top:15px}
-#qrResult img{max-width:250px}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-@media(max-width:600px){
-header h1{font-size:32px}
-}
-</style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+      padding: 22px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #93c5fd;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #bfdbfe;
+    }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      margin-bottom: 18px;
+      color: #111827;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.7;
+      color: #64748b;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: auto;
+      display: flex;
+      background: white;
+      padding: 8px;
+      border-radius: 50px;
+      box-shadow: 0 10px 35px rgba(37,99,235,0.15);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 16px 20px;
+      font-size: 16px;
+      border-radius: 50px;
+    }
+
+    .search-box button {
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 0 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search-box button:hover {
+      background: #1d4ed8;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #64748b;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .category {
+      border: none;
+      background: white;
+      color: #334155;
+      padding: 11px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .category:hover,
+    .category.active {
+      background: #2563eb;
+      color: white;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .tool-card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(15,23,42,0.07);
+      transition: 0.3s;
+      border: 1px solid #e5e7eb;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(37,99,235,0.15);
+    }
+
+    .tool-icon {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: #dbeafe;
+      color: #2563eb;
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .tool-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .tool-card p {
+      color: #64748b;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .tool-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #2563eb;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .tool-btn:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 55px 18px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .search-box {
+        border-radius: 18px;
+      }
+
+      .search-box input {
+        min-width: 0;
+      }
+
+      .search-box button {
+        padding: 0 17px;
+        border-radius: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<h1>IMRAN TOOLS</h1>
-<p>Free Online Tools — Fast, Simple & Easy</p>
-<input type="text" class="search" id="search" placeholder="Search a tool..." onkeyup="searchTools()">
+  <div class="navbar">
+    <div class="logo">Imran <span>Tools</span></div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<div class="container">
-<h2 class="section-title">Popular Tools</h2>
+<section class="hero" id="home">
+  <div class="hero-content">
 
-<div class="tools" id="tools">
+    <h1>Welcome to <span>Imran Tools</span></h1>
 
-<div class="tool">
-<div class="icon">🖼️</div>
-<h3>Image Compressor</h3>
-<p>Compress your images online.</p>
-<button onclick="openTool('compressor')">Open Tool</button>
-</div>
+    <p>
+      Free online tools for PDF, images, QR codes, passwords,
+      calculators and many other useful tasks.
+    </p>
 
-<div class="tool">
-<div class="icon">📐</div>
-<h3>Image Resizer</h3>
-<p>Resize images quickly and easily.</p>
-<button onclick="openTool('resizer')">Open Tool</button>
-</div>
+    <div class="search-box">
+      <input
+        type="text"
+        id="toolSearch"
+        placeholder="Search for a tool..."
+      >
 
-<div class="tool">
-<div class="icon">✂️</div>
-<h3>Image Cropper</h3>
-<p>Crop your images online.</p>
-<button onclick="openTool('cropper')">Open Tool</button>
-</div>
+      <button onclick="searchTools()">Search</button>
+    </div>
 
-<div class="tool">
-<div class="icon">🔄</div>
-<h3>Image Converter</h3>
-<p>Convert JPG, PNG and WebP.</p>
-<button onclick="openTool('converter')">Open Tool</button>
-</div>
+  </div>
+</section>
 
-<div class="tool">
-<div class="icon">📄</div>
-<h3>PDF Merger</h3>
-<p>Merge multiple PDF files.</p>
-<button onclick="openTool('pdf')">Open Tool</button>
-</div>
+<section class="section" id="tools">
 
-<div class="tool">
-<div class="icon">🔢</div>
-<h3>Percentage Calculator</h3>
-<p>Calculate percentages easily.</p>
-<button onclick="openTool('percentage')">Open Tool</button>
-</div>
+  <div class="section-title">
+    <h2>Free Online Tools</h2>
+    <p>Choose a tool and get your work done quickly.</p>
+  </div>
 
-<div class="tool">
-<div class="icon">🎂</div>
-<h3>Age Calculator</h3>
-<p>Calculate your exact age.</p>
-<button onclick="openTool('age')">Open Tool</button>
-</div>
+  <div class="categories">
+    <button class="category active">All</button>
+    <button class="category">PDF</button>
+    <button class="category">Image</button>
+    <button class="category">Calculator</button>
+    <button class="category">Text</button>
+    <button class="category">Other</button>
+  </div>
 
-<div class="tool">
-<div class="icon">🔗</div>
-<h3>QR Code Generator</h3>
-<p>Create QR codes instantly.</p>
-<button onclick="openTool('qr')">Open Tool</button>
-</div>
+  <div class="tools-grid" id="toolsGrid">
 
-<div class="tool">
-<div class="icon">📝</div>
-<h3>Word Counter</h3>
-<p>Count words and characters.</p>
-<button onclick="openTool('words')">Open Tool</button>
-</div>
+    <div class="tool-card" data-name="Image Compressor">
+      <div class="tool-icon">🖼️</div>
+      <h3>Image Compressor</h3>
+      <p>Reduce image file size while keeping good quality.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
 
-<div class="tool">
-<div class="icon">🔐</div>
-<h3>Password Generator</h3>
-<p>Generate strong passwords.</p>
-<button onclick="openTool('password')">Open Tool</button>
-</div>
+    <div class="tool-card" data-name="QR Code Generator">
+      <div class="tool-icon">▦</div>
+      <h3>QR Code Generator</h3>
+      <p>Create QR codes from text, links and other information.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
 
-</div>
-</div>
+    <div class="tool-card" data-name="Password Generator">
+      <div class="tool-icon">🔐</div>
+      <h3>Password Generator</h3>
+      <p>Generate strong random passwords quickly.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
 
-<footer>
-<p>© 2026 IMRAN TOOLS — All Rights Reserved</p>
-</footer>
+    <div class="tool-card" data-name="Age Calculator">
+      <div class="tool-icon">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>Calculate your exact age from your date of birth.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
 
-<div class="modal" id="modal">
-<div class="modal-box">
-<span class="close" onclick="closeTool()">×</span>
-<div id="toolContent"></div>
-</div>
-</div>
+    <div class="tool-card" data-name="Word Counter">
+      <div class="tool-icon">📝</div>
+      <h3>Word Counter</h3>
+      <p>Count words, characters and sentences in your text.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
+
+    <div class="tool-card" data-name="BMI Calculator">
+      <div class="tool-icon">⚖️</div>
+      <h3>BMI Calculator</h3>
+      <p>Calculate BMI using height and weight.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
+
+    <div class="tool-card" data-name="Unit Converter">
+      <div class="tool-icon">🔄</div>
+      <h3>Unit Converter</h3>
+      <p>Convert common units quickly and easily.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
+
+    <div class="tool-card" data-name="Image Resizer">
+      <div class="tool-icon">📐</div>
+      <h3>Image Resizer</h3>
+      <p>Resize images to your preferred dimensions.</p>
+      <a href="#" class="tool-btn">Open Tool</a>
+    </div>
+
+  </div>
+</section>
 
 <script>
-function searchTools(){
-let input=document.getElementById("search").value.toLowerCase();
-document.querySelectorAll(".tool").forEach(tool=>{
-tool.style.display=tool.innerText.toLowerCase().includes(input)?"block":"none";
-});
-}
+  function searchTools() {
+    const input = document
+      .getElementById("toolSearch")
+      .value
+      .toLowerCase()
+      .trim();
 
-function openTool(type){
-let c=document.getElementById("toolContent");
+    const cards = document.querySelectorAll(".tool-card");
 
-if(type==="compressor"){
-c.innerHTML=`
-<h2>🖼️ Image Compressor</h2>
-<input type="file" id="compressFile" accept="image/*">
-<select id="quality">
-<option value=".8">High Quality</option>
-<option value=".6">Medium Quality</option>
-<option value=".4">Small Size</option>
-</select>
-<button class="action" onclick="compressImage()">Compress Image</button>
-<div id="compressResult"></div>`;
-}
+    cards.forEach(card => {
+      const name = card
+        .getAttribute("data-name")
+        .toLowerCase();
 
-if(type==="resizer"){
-c.innerHTML=`
-<h2>📐 Image Resizer</h2>
-<input type="file" id="resizeFile" accept="image/*">
-<input type="number" id="resizeWidth" placeholder="New width in pixels">
-<input type="number" id="resizeHeight" placeholder="New height in pixels">
-<button class="action" onclick="resizeImage()">Resize Image</button>
-<div id="resizeResult"></div>`;
-}
+      card.style.display =
+        name.includes(input) ? "block" : "none";
+    });
+  }
 
-if(type==="cropper"){
-c.innerHTML=`
-<h2>✂️ Image Cropper</h2>
-<input type="file" id="cropFile" accept="image/*">
-<p style="margin-top:10px">Enter crop values:</p>
-<input type="number" id="cropX" placeholder="X">
-<input type="number" id="cropY" placeholder="Y">
-<input type="number" id="cropW" placeholder="Width">
-<input type="number" id="cropH" placeholder="Height">
-<button class="action" onclick="cropImage()">Crop Image</button>
-<div id="cropResult"></div>`;
-}
-
-if(type==="converter"){
-c.innerHTML=`
-<h2>🔄 Image Converter</h2>
-<input type="file" id="convertFile" accept="image/*">
-<select id="convertType">
-<option value="image/png">PNG</option>
-<option value="image/jpeg">JPG</option>
-<option value="image/webp">WebP</option>
-</select>
-<button class="action" onclick="convertImage()">Convert Image</button>
-<div id="convertResult"></div>`;
-}
-
-if(type==="percentage"){
-c.innerHTML=`
-<h2>🔢 Percentage Calculator</h2>
-<input type="number" id="percent" placeholder="Percentage">
-<input type="number" id="percentNumber" placeholder="Number">
-<button class="action" onclick="calculatePercentage()">Calculate</button>
-<div class="result" id="percentResult"></div>`;
-}
-
-if(type==="age"){
-c.innerHTML=`
-<h2>🎂 Age Calculator</h2>
-<input type="date" id="birthDate">
-<button class="action" onclick="calculateAge()">Calculate Age</button>
-<div class="result" id="ageResult"></div>`;
-}
-
-if(type==="words"){
-c.innerHTML=`
-<h2>📝 Word Counter</h2>
-<textarea id="wordText" rows="8" placeholder="Type or paste your text here..." oninput="countWords()"></textarea>
-<div class="result" id="wordResult">Words: 0 | Characters: 0</div>`;
-}
-
-if(type==="password"){
-c.innerHTML=`
-<h2>🔐 Password Generator</h2>
-<input type="number" id="passLength" value="16" min="4" max="100">
-<button class="action" onclick="generatePassword()">Generate Password</button>
-<div class="result" id="passwordResult"></div>`;
-}
-
-if(type==="qr"){
-c.innerHTML=`
-<h2>🔗 QR Code Generator</h2>
-<input type="text" id="qrText" placeholder="Enter text or website URL">
-<button class="action" onclick="generateQR()">Generate QR Code</button>
-<div id="qrResult"></div>`;
-}
-
-if(type==="pdf"){
-c.innerHTML=`
-<h2>📄 PDF Merger</h2>
-<input type="file" id="pdfFiles" accept="application/pdf" multiple>
-<button class="action" onclick="mergePDF()">Merge PDFs</button>
-<div class="result" id="pdfResult">
-Select two or more PDF files.
-</div>`;
-}
-
-document.getElementById("modal").style.display="block";
-}
-
-function closeTool(){
-document.getElementById("modal").style.display="none";
-}
-
-function loadImage(file,callback){
-let reader=new FileReader();
-reader.onload=e=>{
-let img=new Image();
-img.onload=()=>callback(img);
-img.src=e.target.result;
-};
-reader.readAsDataURL(file);
-}
-
-function downloadCanvas(canvas,name,type="image/png"){
-let a=document.createElement("a");
-a.href=canvas.toDataURL(type,.9);
-a.download=name;
-a.click();
-}
-
-function compressImage(){
-let file=document.getElementById("compressFile").files[0];
-if(!file)return alert("Please select an image.");
-let quality=parseFloat(document.getElementById("quality").value);
-loadImage(file,img=>{
-let canvas=document.createElement("canvas");
-canvas.width=img.width;
-canvas.height=img.height;
-canvas.getContext("2d").drawImage(img,0,0);
-downloadCanvas(canvas,"compressed-image.jpg","image/jpeg");
-document.getElementById("compressResult").innerHTML="Compressed image downloaded.";
-});
-}
-
-function resizeImage(){
-let file=document.getElementById("resizeFile").files[0];
-let w=parseInt(document.getElementById("resizeWidth").value);
-let h=parseInt(document.getElementById("resizeHeight").value);
-if(!file||!w||!h)return alert("Please select image and enter width/height.");
-loadImage(file,img=>{
-let canvas=document.createElement("canvas");
-canvas.width=w;canvas.height=h;
-canvas.getContext("2d").drawImage(img,0,0,w,h);
-downloadCanvas(canvas,"resized-image.png");
-document.getElementById("resizeResult").innerHTML="Resized image downloaded.";
-});
-}
-
-function cropImage(){
-let file=document.getElementById("cropFile").files[0];
-let x=parseInt(document.getElementById("cropX").value)||0;
-let y=parseInt(document.getElementById("cropY").value)||0;
-let w=parseInt(document.getElementById("cropW").value);
-let h=parseInt(document.getElementById("cropH").value);
-if(!file||!w||!h)return alert("Please select image and enter crop values.");
-loadImage(file,img=>{
-let canvas=document.createElement("canvas");
-canvas.width=w;canvas.height=h;
-canvas.getContext("2d").drawImage(img,x,y,w,h,0,0,w,h);
-downloadCanvas(canvas,"cropped-image.png");
-document.getElementById("cropResult").innerHTML="Cropped image downloaded.";
-});
-}
-
-function convertImage(){
-let file=document.getElementById("convertFile").files[0];
-let type=document.getElementById("convertType").value;
-if(!file)return alert("Please select an image.");
-loadImage(file,img=>{
-let canvas=document.createElement("canvas");
-canvas.width=img.width;canvas.height=img.height;
-canvas.getContext("2d").drawImage(img,0,0);
-let ext=type==="image/jpeg"?"jpg":type.split("/")[1];
-downloadCanvas(canvas,"converted-image."+ext,type);
-document.getElementById("convertResult").innerHTML="Converted image downloaded.";
-});
-}
-
-function calculatePercentage(){
-let p=parseFloat(document.getElementById("percent").value);
-let n=parseFloat(document.getElementById("percentNumber").value);
-if(isNaN(p)||isNaN(n))return;
-document.getElementById("percentResult").innerText=p+"% of "+n+" = "+((p*n)/100);
-}
-
-function calculateAge(){
-let birth=new Date(document.getElementById("birthDate").value);
-if(isNaN(birth))return;
-let today=new Date();
-let age=today.getFullYear()-birth.getFullYear();
-let m=today.getMonth()-birth.getMonth();
-if(m<0||(m===0&&today.getDate()<birth.getDate()))age--;
-document.getElementById("ageResult").innerText="Your age is "+age+" years.";
-}
-
-function countWords(){
-let text=document.getElementById("wordText").value;
-let words=text.trim()?text.trim().split(/\s+/).length:0;
-document.getElementById("wordResult").innerText=
-"Words: "+words+" | Characters: "+text.length;
-}
-
-function generatePassword(){
-let length=parseInt(document.getElementById("passLength").value)||16;
-let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-let pass="";
-for(let i=0;i<length;i++){
-pass+=chars[Math.floor(Math.random()*chars.length)];
-}
-document.getElementById("passwordResult").innerText=pass;
-}
-
-function generateQR(){
-let text=document.getElementById("qrText").value.trim();
-if(!text)return alert("Please enter text or URL.");
-let url="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+encodeURIComponent(text);
-document.getElementById("qrResult").innerHTML=
-'<img src="'+url+'" alt="QR Code"><br><a href="'+url+'" download="qr-code.png">Download QR Code</a>';
-}
-
-async function mergePDF(){
-let files=[...document.getElementById("pdfFiles").files];
-if(files.length<2)return alert("Please select at least 2 PDF files.");
-
-document.getElementById("pdfResult").innerText="Preparing PDF merger...";
-
-let script=document.createElement("script");
-script.src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js";
-script.onload=async()=>{
-try{
-let merged=await PDFLib.PDFDocument.create();
-
-for(let file of files){
-let bytes=await file.arrayBuffer();
-let pdf=await PDFLib.PDFDocument.load(bytes);
-let pages=await merged.copyPages(pdf,pdf.getPageIndices());
-pages.forEach(page=>merged.addPage(page));
-}
-
-let output=await merged.save();
-let blob=new Blob([output],{type:"application/pdf"});
-let url=URL.createObjectURL(blob);
-let a=document.createElement("a");
-a.href=url;
-a.download="merged.pdf";
-a.click();
-
-document.getElementById("pdfResult").innerText="Merged PDF downloaded successfully.";
-}catch(e){
-document.getElementById("pdfResult").innerText="Could not merge the PDFs.";
-}
-};
-document.head.appendChild(script);
-}
-
-window.onclick=function(e){
-if(e.target===document.getElementById("modal"))closeTool();
-}
+  document
+    .getElementById("toolSearch")
+    .addEventListener("input", searchTools);
 </script>
 
 </body>
