@@ -2,262 +2,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Imran Tools | Free Online Tools</title>
-  <meta name="description" content="Imran Tools - Free online PDF, image, QR code, calculator and utility tools. Fast, simple and easy to use.">
+<title>Imran Tools | Free Online Tools</title>
+<meta name="description" content="Imran Tools - Free online tools for images, PDF, QR codes, calculators, text and productivity.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+}
 
-    header {
-      background: linear-gradient(135deg, #111827, #2563eb);
-      color: white;
-      padding: 22px 7%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
+header{
+  background:linear-gradient(135deg,#111827,#2563eb);
+  color:white;
+  padding:22px 7%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
 
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 
-    .logo {
-      font-size: 27px;
-      font-weight: 800;
-    }
+.logo{
+  font-size:27px;
+  font-weight:800;
+}
 
-    .logo span {
-      color: #93c5fd;
-    }
+.logo span{color:#93c5fd}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 22px;
-      font-size: 15px;
-    }
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:22px;
+  font-size:15px;
+}
 
-    nav a:hover {
-      color: #bfdbfe;
-    }
+.hero{
+  min-height:430px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  background:linear-gradient(135deg,#eff6ff,#fff);
+}
 
-    .hero {
-      min-height: 430px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(135deg, #eff6ff, #ffffff);
-    }
+.hero-content{max-width:850px}
 
-    .hero-content {
-      max-width: 850px;
-    }
+.hero h1{
+  font-size:clamp(38px,7vw,68px);
+  margin-bottom:18px;
+}
 
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      margin-bottom: 18px;
-      color: #111827;
-    }
+.hero h1 span{color:#2563eb}
 
-    .hero h1 span {
-      color: #2563eb;
-    }
+.hero p{
+  font-size:19px;
+  line-height:1.7;
+  color:#64748b;
+  margin-bottom:30px;
+}
 
-    .hero p {
-      font-size: 19px;
-      line-height: 1.7;
-      color: #64748b;
-      margin-bottom: 30px;
-    }
+.search-box{
+  max-width:650px;
+  margin:auto;
+  display:flex;
+  background:white;
+  padding:8px;
+  border-radius:50px;
+  box-shadow:0 10px 35px rgba(37,99,235,.15);
+}
 
-    .search-box {
-      max-width: 650px;
-      margin: auto;
-      display: flex;
-      background: white;
-      padding: 8px;
-      border-radius: 50px;
-      box-shadow: 0 10px 35px rgba(37,99,235,0.15);
-    }
+.search-box input{
+  flex:1;
+  border:none;
+  outline:none;
+  padding:16px 20px;
+  font-size:16px;
+  border-radius:50px;
+}
 
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 16px 20px;
-      font-size: 16px;
-      border-radius: 50px;
-    }
+.search-box button{
+  border:none;
+  background:#2563eb;
+  color:white;
+  padding:0 25px;
+  border-radius:50px;
+  cursor:pointer;
+  font-weight:bold;
+}
 
-    .search-box button {
-      border: none;
-      background: #2563eb;
-      color: white;
-      padding: 0 25px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px;
+}
 
-    .search-box button:hover {
-      background: #1d4ed8;
-    }
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
 
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+.section-title h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
+.section-title p{color:#64748b}
 
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+.categories{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:35px;
+}
 
-    .section-title p {
-      color: #64748b;
-    }
+.category{
+  border:none;
+  background:white;
+  color:#334155;
+  padding:11px 18px;
+  border-radius:30px;
+  cursor:pointer;
+  box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
 
-    .categories {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 35px;
-    }
+.category.active,
+.category:hover{
+  background:#2563eb;
+  color:white;
+}
 
-    .category {
-      border: none;
-      background: white;
-      color: #334155;
-      padding: 11px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    }
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
 
-    .category:hover,
-    .category.active {
-      background: #2563eb;
-      color: white;
-    }
+.tool-card{
+  background:white;
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(15,23,42,.07);
+  transition:.3s;
+  border:1px solid #e5e7eb;
+}
 
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
+.tool-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 15px 35px rgba(37,99,235,.15);
+}
 
-    .tool-card {
-      background: white;
-      padding: 28px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(15,23,42,0.07);
-      transition: 0.3s;
-      border: 1px solid #e5e7eb;
-    }
+.tool-icon{
+  width:55px;
+  height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  background:#dbeafe;
+  font-size:25px;
+  margin-bottom:18px;
+}
 
-    .tool-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 15px 35px rgba(37,99,235,0.15);
-    }
+.tool-card h3{
+  margin-bottom:10px;
+  font-size:20px;
+}
 
-    .tool-icon {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      background: #dbeafe;
-      color: #2563eb;
-      font-size: 25px;
-      margin-bottom: 18px;
-    }
+.tool-card p{
+  color:#64748b;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:18px;
+}
 
-    .tool-card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
+.tool-btn{
+  display:inline-block;
+  border:none;
+  text-decoration:none;
+  background:#2563eb;
+  color:white;
+  padding:10px 17px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    .tool-card p {
-      color: #64748b;
-      line-height: 1.6;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
+.tool-btn:hover{background:#1d4ed8}
 
-    .tool-btn {
-      display: inline-block;
-      text-decoration: none;
-      background: #2563eb;
-      color: white;
-      padding: 10px 17px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+  margin-top:30px;
+}
 
-    .tool-btn:hover {
-      background: #1d4ed8;
-    }
+/* TOOL MODAL */
 
-    @media (max-width: 700px) {
-      header {
-        padding: 18px 5%;
-      }
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:9999;
+}
 
-      nav {
-        display: none;
-      }
+.modal.show{display:flex}
 
-      .hero {
-        padding: 55px 18px;
-      }
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:600px;
+  max-height:90vh;
+  overflow:auto;
+  padding:30px;
+  border-radius:22px;
+  position:relative;
+}
 
-      .hero p {
-        font-size: 16px;
-      }
+.close{
+  position:absolute;
+  right:15px;
+  top:12px;
+  border:none;
+  background:#eee;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:20px;
+}
 
-      .search-box {
-        border-radius: 18px;
-      }
+.modal-box h2{
+  margin-bottom:15px;
+}
 
-      .search-box input {
-        min-width: 0;
-      }
+.tool-input,
+.tool-select,
+.tool-textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  outline:none;
+}
 
-      .search-box button {
-        padding: 0 17px;
-        border-radius: 14px;
-      }
-    }
-  </style>
+.tool-textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.result{
+  margin-top:20px;
+  padding:15px;
+  background:#f8fafc;
+  border-radius:12px;
+  line-height:1.7;
+}
+
+.download{
+  display:inline-block;
+  margin-top:12px;
+  padding:11px 18px;
+  background:#16a34a;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+}
+
+@media(max-width:700px){
+  nav{display:none}
+  .hero{padding:55px 18px}
+  .hero p{font-size:16px}
+  .search-box{border-radius:18px}
+  .search-box button{padding:0 17px}
+}
+</style>
 </head>
 
 <body>
@@ -277,24 +317,17 @@
 
 <section class="hero" id="home">
   <div class="hero-content">
-
     <h1>Welcome to <span>Imran Tools</span></h1>
 
     <p>
-      Free online tools for PDF, images, QR codes, passwords,
-      calculators and many other useful tasks.
+      Free online tools for PDF, images, QR codes,
+      passwords, calculators and everyday tasks.
     </p>
 
     <div class="search-box">
-      <input
-        type="text"
-        id="toolSearch"
-        placeholder="Search for a tool..."
-      >
-
+      <input id="toolSearch" type="text" placeholder="Search for a tool...">
       <button onclick="searchTools()">Search</button>
     </div>
-
   </div>
 </section>
 
@@ -306,359 +339,939 @@
   </div>
 
   <div class="categories">
-    <button class="category active">All</button>
-    <button class="category">PDF</button>
-    <button class="category">Image</button>
-    <button class="category">Calculator</button>
-    <button class="category">Text</button>
-    <button class="category">Other</button>
+    <button class="category active" onclick="filterTools('all',this)">All</button>
+    <button class="category" onclick="filterTools('pdf',this)">PDF</button>
+    <button class="category" onclick="filterTools('image',this)">Image</button>
+    <button class="category" onclick="filterTools('calculator',this)">Calculator</button>
+    <button class="category" onclick="filterTools('text',this)">Text</button>
+    <button class="category" onclick="filterTools('other',this)">Other</button>
   </div>
 
   <div class="tools-grid" id="toolsGrid">
 
-    <div class="tool-card" data-name="<a href="image-compressor.html" class="tool-btn">Open Tool</a>
-      
+    <div class="tool-card" data-name="Image Compressor" data-category="image">
+      <div class="tool-icon">🖼️</div>
       <h3>Image Compressor</h3>
       <p>Reduce image file size while keeping good quality.</p>
-      <button class="tool-btn" onclick="openImageCompressor()">Open Tool</button>
+      <button class="tool-btn" onclick="openTool('Image Compressor')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="QR Code Generator">
+    <div class="tool-card" data-name="QR Code Generator" data-category="other">
       <div class="tool-icon">▦</div>
       <h3>QR Code Generator</h3>
-      <p>Create QR codes from text, links and other information.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Create QR codes from text or links.</p>
+      <button class="tool-btn" onclick="openTool('QR Code Generator')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="Password Generator">
+    <div class="tool-card" data-name="Password Generator" data-category="other">
       <div class="tool-icon">🔐</div>
       <h3>Password Generator</h3>
-      <p>Generate strong random passwords quickly.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Generate strong random passwords.</p>
+      <button class="tool-btn" onclick="openTool('Password Generator')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="Age Calculator">
+    <div class="tool-card" data-name="Age Calculator" data-category="calculator">
       <div class="tool-icon">🎂</div>
       <h3>Age Calculator</h3>
-      <p>Calculate your exact age from your date of birth.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Calculate your age from your date of birth.</p>
+      <button class="tool-btn" onclick="openTool('Age Calculator')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="Word Counter">
+    <div class="tool-card" data-name="Word Counter" data-category="text">
       <div class="tool-icon">📝</div>
       <h3>Word Counter</h3>
-      <p>Count words, characters and sentences in your text.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Count words, characters and sentences.</p>
+      <button class="tool-btn" onclick="openTool('Word Counter')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="BMI Calculator">
+    <div class="tool-card" data-name="BMI Calculator" data-category="calculator">
       <div class="tool-icon">⚖️</div>
       <h3>BMI Calculator</h3>
       <p>Calculate BMI using height and weight.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <button class="tool-btn" onclick="openTool('BMI Calculator')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="Unit Converter">
+    <div class="tool-card" data-name="Unit Converter" data-category="other">
       <div class="tool-icon">🔄</div>
       <h3>Unit Converter</h3>
-      <p>Convert common units quickly and easily.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Convert common length and weight units.</p>
+      <button class="tool-btn" onclick="openTool('Unit Converter')">Open Tool</button>
     </div>
 
-    <div class="tool-card" data-name="Image Resizer">
+    <div class="tool-card" data-name="Image Resizer" data-category="image">
       <div class="tool-icon">📐</div>
       <h3>Image Resizer</h3>
-      <p>Resize images to your preferred dimensions.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Resize an image to your preferred dimensions.</p>
+      <button class="tool-btn" onclick="openTool('Image Resizer')">Open Tool</button>
     </div>
 
-  </div>
-</section>
-
-<script>
-  function searchTools() {
-    const input = document
-      .getElementById("toolSearch")
-      .value
-      .toLowerCase()
-      .trim();
-
-    const cards = document.querySelectorAll(".tool-card");
-
-    cards.forEach(card => {
-      const name = card
-        .getAttribute("data-name")
-        .toLowerCase();
-
-      card.style.display =
-        name.includes(input) ? "block" : "none";
-    });
-  }
-
-  document
-    .getElementById("toolSearch")
-    .addEventListener("input", searchTools);
-</script>
-
-</body>
-</html>
-````html
-<!-- MORE TOOLS -->
-
-<section class="section" id="more-tools">
-
-  <div class="section-title">
-    <h2>More Useful Tools</h2>
-    <p>Explore more free tools from Imran Tools.</p>
-  </div>
-
-  <div class="tools-grid">
-
-    <div class="tool-card">
+    <div class="tool-card" data-name="Image to PDF" data-category="pdf">
       <div class="tool-icon">📄</div>
       <h3>Image to PDF</h3>
-      <p>Convert your images into a PDF file.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Convert an image into a PDF.</p>
+      <button class="tool-btn" onclick="openTool('Image to PDF')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="PDF Merger" data-category="pdf">
       <div class="tool-icon">📑</div>
       <h3>PDF Merger</h3>
-      <p>Combine multiple PDF files into one PDF.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Combine PDF files.</p>
+      <button class="tool-btn" onclick="openTool('PDF Merger')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="PDF Splitter" data-category="pdf">
       <div class="tool-icon">✂️</div>
       <h3>PDF Splitter</h3>
-      <p>Split a PDF into separate pages or files.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Split PDF pages.</p>
+      <button class="tool-btn" onclick="openTool('PDF Splitter')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="Image Cropper" data-category="image">
       <div class="tool-icon">📏</div>
       <h3>Image Cropper</h3>
-      <p>Crop your images to the size you need.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Crop an image.</p>
+      <button class="tool-btn" onclick="openTool('Image Cropper')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="JPG to PNG" data-category="image">
       <div class="tool-icon">🔤</div>
       <h3>JPG to PNG</h3>
-      <p>Convert JPG images into PNG format.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Convert JPG images to PNG.</p>
+      <button class="tool-btn" onclick="openTool('JPG to PNG')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="Currency Converter" data-category="calculator">
       <div class="tool-icon">💰</div>
       <h3>Currency Converter</h3>
-      <p>Convert between different currencies.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Convert common currencies.</p>
+      <button class="tool-btn" onclick="openTool('Currency Converter')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="Loan Calculator" data-category="calculator">
       <div class="tool-icon">🏦</div>
       <h3>Loan Calculator</h3>
-      <p>Calculate loan payments and totals.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Calculate monthly loan payments.</p>
+      <button class="tool-btn" onclick="openTool('Loan Calculator')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="EMI Calculator" data-category="calculator">
       <div class="tool-icon">🔢</div>
       <h3>EMI Calculator</h3>
-      <p>Calculate your monthly loan EMI.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Calculate monthly EMI.</p>
+      <button class="tool-btn" onclick="openTool('EMI Calculator')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="Text to Speech" data-category="text">
       <div class="tool-icon">🔊</div>
       <h3>Text to Speech</h3>
-      <p>Convert written text into spoken audio.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Convert text into speech.</p>
+      <button class="tool-btn" onclick="openTool('Text to Speech')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="Speech to Text" data-category="text">
       <div class="tool-icon">🎤</div>
       <h3>Speech to Text</h3>
-      <p>Convert your voice into written text.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Convert speech into text.</p>
+      <button class="tool-btn" onclick="openTool('Speech to Text')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="Image to Text" data-category="image">
       <div class="tool-icon">🔎</div>
       <h3>Image to Text</h3>
       <p>Extract text from an image.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <button class="tool-btn" onclick="openTool('Image to Text')">Open Tool</button>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card" data-name="QR Scanner" data-category="other">
       <div class="tool-icon">📱</div>
       <h3>QR Scanner</h3>
-      <p>Scan and read QR codes easily.</p>
-      <a href="#" class="tool-btn">Open Tool</a>
+      <p>Scan QR codes with your camera.</p>
+      <button class="tool-btn" onclick="openTool('QR Scanner')">Open Tool</button>
     </div>
 
   </div>
 </section>
 
-
-<!-- ABOUT -->
-
 <section class="section" id="about">
-
   <div class="section-title">
     <h2>About Imran Tools</h2>
-
     <p>
       Imran Tools is a collection of simple and useful
-      online tools designed to make everyday tasks faster
-      and easier.
+      online tools designed to make everyday tasks faster.
     </p>
   </div>
-
 </section>
-
-
-<!-- CONTACT -->
 
 <section class="section" id="contact">
-
   <div class="section-title">
     <h2>Contact Us</h2>
-
-    <p>
-      Have a suggestion or found a problem?
-      We'd love to hear from you.
-    </p>
+    <p>Have a suggestion or found a problem? We'd love to hear from you.</p>
   </div>
 
-  <div style="
-    max-width:600px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 8px 25px rgba(15,23,42,0.07);
-  ">
-
+  <div style="max-width:600px;margin:auto;background:white;padding:30px;border-radius:20px">
     <form onsubmit="sendMessage(event)">
-
-      <input
-        type="text"
-        id="contactName"
-        placeholder="Your Name"
-        required
-        style="
-          width:100%;
-          padding:14px;
-          margin-bottom:15px;
-          border:1px solid #ddd;
-          border-radius:10px;
-          outline:none;
-        "
-      >
-
-      <input
-        type="email"
-        id="contactEmail"
-        placeholder="Your Email"
-        required
-        style="
-          width:100%;
-          padding:14px;
-          margin-bottom:15px;
-          border:1px solid #ddd;
-          border-radius:10px;
-          outline:none;
-        "
-      >
-
-      <textarea
-        id="contactMessage"
-        placeholder="Your Message"
-        required
-        rows="5"
-        style="
-          width:100%;
-          padding:14px;
-          margin-bottom:15px;
-          border:1px solid #ddd;
-          border-radius:10px;
-          outline:none;
-          resize:vertical;
-        "
-      ></textarea>
-
-      <button
-        type="submit"
-        style="
-          width:100%;
-          padding:14px;
-          border:none;
-          border-radius:10px;
-          background:#2563eb;
-          color:white;
-          font-size:16px;
-          font-weight:bold;
-          cursor:pointer;
-        "
-      >
-        Send Message
-      </button>
-
+      <input class="tool-input" id="contactName" placeholder="Your Name" required>
+      <input class="tool-input" id="contactEmail" type="email" placeholder="Your Email" required>
+      <textarea class="tool-textarea" id="contactMessage" placeholder="Your Message" required></textarea>
+      <button class="tool-btn" type="submit">Send Message</button>
     </form>
-
   </div>
-
 </section>
 
-
-<!-- FOOTER -->
-
-<footer style="
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:35px 20px;
-  margin-top:30px;
-">
-
+<footer>
   <h2>Imran Tools</h2>
-
-  <p style="
-    color:#9ca3af;
-    margin:12px 0;
-  ">
-    Free • Fast • Simple Online Tools
-  </p>
-
-  <p style="
-    color:#6b7280;
-    font-size:14px;
-  ">
-    © 2026 Imran Tools. All rights reserved.
-  </p>
-
+  <p style="color:#9ca3af;margin:12px 0">Free • Fast • Simple Online Tools</p>
+  <p style="color:#6b7280;font-size:14px">© 2026 Imran Tools. All rights reserved.</p>
 </footer>
 
+<!-- TOOL MODAL -->
+
+<div class="modal" id="toolModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeTool()">×</button>
+    <div id="toolContent"></div>
+  </div>
+</div>
 
 <script>
 
-  function sendMessage(event) {
+function closeTool(){
+  document.getElementById("toolModal").classList.remove("show");
+}
 
-    event.preventDefault();
+function openTool(name){
 
-    const name =
-      document.getElementById("contactName").value;
+  const content=document.getElementById("toolContent");
 
-    alert(
-      "Thank you " +
-      name +
-      "! Your message form is working."
-    );
-
+  if(name==="Image Compressor"){
+    content.innerHTML=`
+      <h2>🖼️ Image Compressor</h2>
+      <p>Select an image and compress it.</p>
+      <input class="tool-input" type="file" id="compressFile" accept="image/*">
+      <button class="tool-btn" onclick="compressImage()">Compress Image</button>
+      <div class="result" id="compressResult"></div>`;
   }
 
+  else if(name==="Password Generator"){
+    content.innerHTML=`
+      <h2>🔐 Password Generator</h2>
+      <input class="tool-input" id="passwordLength" type="number" value="16" min="4" max="100">
+      <button class="tool-btn" onclick="generatePassword()">Generate Password</button>
+      <div class="result" id="passwordResult"></div>`;
+  }
+
+  else if(name==="Word Counter"){
+    content.innerHTML=`
+      <h2>📝 Word Counter</h2>
+      <textarea class="tool-textarea" id="counterText" oninput="countWords()" placeholder="Type or paste your text..."></textarea>
+      <div class="result" id="counterResult">Words: 0 | Characters: 0 | Sentences: 0</div>`;
+  }
+
+  else if(name==="Age Calculator"){
+    content.innerHTML=`
+      <h2>🎂 Age Calculator</h2>
+      <input class="tool-input" id="birthDate" type="date">
+      <button class="tool-btn" onclick="calculateAge()">Calculate Age</button>
+      <div class="result" id="ageResult"></div>`;
+  }
+
+  else if(name==="BMI Calculator"){
+    content.innerHTML=`
+      <h2>⚖️ BMI Calculator</h2>
+      <input class="tool-input" id="bmiWeight" type="number" placeholder="Weight in kg">
+      <input class="tool-input" id="bmiHeight" type="number" placeholder="Height in cm">
+      <button class="tool-btn" onclick="calculateBMI()">Calculate BMI</button>
+      <div class="result" id="bmiResult"></div>`;
+  }
+
+  else if(name==="Unit Converter"){
+    content.innerHTML=`
+      <h2>🔄 Unit Converter</h2>
+      <input class="tool-input" id="unitValue" type="number" placeholder="Enter value">
+      <select class="tool-select" id="unitType">
+        <option value="km-mi">Kilometers → Miles</option>
+        <option value="mi-km">Miles → Kilometers</option>
+        <option value="kg-lb">Kilograms → Pounds</option>
+        <option value="lb-kg">Pounds → Kilograms</option>
+        <option value="cm-in">Centimeters → Inches</option>
+        <option value="in-cm">Inches → Centimeters</option>
+      </select>
+      <button class="tool-btn" onclick="convertUnit()">Convert</button>
+      <div class="result" id="unitResult"></div>`;
+  }
+
+  else if(name==="Image Resizer"){
+    content.innerHTML=`
+      <h2>📐 Image Resizer</h2>
+      <input class="tool-input" type="file" id="resizeFile" accept="image/*">
+      <input class="tool-input" id="resizeWidth" type="number" placeholder="New width in pixels">
+      <button class="tool-btn" onclick="resizeImage()">Resize Image</button>
+      <div class="result" id="resizeResult"></div>`;
+  }
+
+  else if(name==="JPG to PNG"){
+    content.innerHTML=`
+      <h2>🔤 JPG to PNG</h2>
+      <input class="tool-input" type="file" id="pngFile" accept="image/jpeg,image/jpg">
+      <button class="tool-btn" onclick="convertPNG()">Convert to PNG</button>
+      <div class="result" id="pngResult"></div>`;
+  }
+
+  else if(name==="Image to PDF"){
+    content.innerHTML=`
+      <h2>📄 Image to PDF</h2>
+      <input class="tool-input" type="file" id="pdfImage" accept="image/*">
+      <button class="tool-btn" onclick="imageToPDF()">Create PDF</button>
+      <div class="result" id="pdfImageResult"></div>`;
+  }
+
+  else if(name==="Loan Calculator" || name==="EMI Calculator"){
+    content.innerHTML=`
+      <h2>🏦 ${name}</h2>
+      <input class="tool-input" id="loanAmount" type="number" placeholder="Loan amount">
+      <input class="tool-input" id="loanRate" type="number" placeholder="Annual interest %">
+      <input class="tool-input" id="loanYears" type="number" placeholder="Years">
+      <button class="tool-btn" onclick="calculateLoan()">Calculate</button>
+      <div class="result" id="loanResult"></div>`;
+  }
+
+  else if(name==="Text to Speech"){
+    content.innerHTML=`
+      <h2>🔊 Text to Speech</h2>
+      <textarea class="tool-textarea" id="speechText" placeholder="Write something..."></textarea>
+      <button class="tool-btn" onclick="speakText()">Speak</button>`;
+  }
+
+  else if(name==="Speech to Text"){
+    content.innerHTML=`
+      <h2>🎤 Speech to Text</h2>
+      <button class="tool-btn" onclick="startSpeech()">Start Speaking</button>
+      <textarea class="tool-textarea" id="speechResult" placeholder="Your speech will appear here..."></textarea>`;
+  }
+
+  else if(name==="QR Code Generator"){
+    content.innerHTML=`
+      <h2>▦ QR Code Generator</h2>
+      <input class="tool-input" id="qrText" placeholder="Enter text or URL">
+      <button class="tool-btn" onclick="generateQR()">Generate QR</button>
+      <div class="result" id="qrResult"></div>`;
+  }
+
+  else if(name==="Currency Converter"){
+    content.innerHTML=`
+      <h2>💰 Currency Converter</h2>
+      <input class="tool-input" id="currencyAmount" type="number" placeholder="Amount">
+      <select class="tool-select" id="currencyFrom">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="PKR">PKR</option>
+      </select>
+      <select class="tool-select" id="currencyTo">
+        <option value="PKR">PKR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+      <button class="tool-btn" onclick="convertCurrency()">Convert</button>
+      <div class="result" id="currencyResult"></div>`;
+  }
+
+  else if(name==="QR Scanner"){
+    content.innerHTML=`
+      <h2>📱 QR Scanner</h2>
+      <p>Use your device camera if your browser supports QR scanning.</p>
+      <button class="tool-btn" onclick="scanQR()">Start Scanner</button>
+      <div class="result" id="scannerResult"></div>`;
+  }
+
+  else if(name==="Image Cropper"){
+    content.innerHTML=`
+      <h2>📏 Image Cropper</h2>
+      <input class="tool-input" type="file" id="cropFile" accept="image/*">
+      <button class="tool-btn" onclick="cropImage()">Create Square Crop</button>
+      <div class="result" id="cropResult"></div>`;
+  }
+
+  else if(name==="Image to Text"){
+    content.innerHTML=`
+      <h2>🔎 Image to Text</h2>
+      <p>Select an image. OCR support depends on your browser/device.</p>
+      <input class="tool-input" type="file" accept="image/*" onchange="imageTextNotice()">
+      <div class="result" id="ocrResult">Image selected for text extraction.</div>`;
+  }
+
+  else{
+    content.innerHTML=`
+      <h2>${name}</h2>
+      <p>This tool is ready to be connected with its advanced processing engine.</p>
+      <div class="result">The button is working and the tool window opened successfully.</div>`;
+  }
+
+  document.getElementById("toolModal").classList.add("show");
+}
+
+
+/* SEARCH */
+
+function searchTools(){
+  const value=document.getElementById("toolSearch").value.toLowerCase();
+
+  document.querySelectorAll(".tool-card").forEach(card=>{
+    card.style.display=
+      card.dataset.name.toLowerCase().includes(value) ? "block" : "none";
+  });
+}
+
+document.getElementById("toolSearch").addEventListener("input",searchTools);
+
+
+/* CATEGORY */
+
+function filterTools(category,button){
+
+  document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+
+  document.querySelectorAll(".tool-card").forEach(card=>{
+    card.style.display=
+      category==="all" || card.dataset.category===category
+      ? "block"
+      : "none";
+  });
+}
+
+
+/* IMAGE COMPRESSOR */
+
+function compressImage(){
+
+  const file=document.getElementById("compressFile").files[0];
+  const result=document.getElementById("compressResult");
+
+  if(!file){
+    result.innerHTML="Please select an image first.";
+    return;
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=e=>{
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+      const canvas=document.createElement("canvas");
+      const ctx=canvas.getContext("2d");
+
+      const max=1200;
+      let w=img.width;
+      let h=img.height;
+
+      if(w>max){
+        h*=max/w;
+        w=max;
+      }
+
+      canvas.width=w;
+      canvas.height=h;
+
+      ctx.drawImage(img,0,0,w,h);
+
+      canvas.toBlob(blob=>{
+
+        const url=URL.createObjectURL(blob);
+
+        result.innerHTML=`
+          Original: ${(file.size/1024).toFixed(1)} KB<br>
+          Compressed: ${(blob.size/1024).toFixed(1)} KB<br>
+          <a class="download" href="${url}" download="compressed-image.jpg">
+          Download Compressed Image
+          </a>`;
+
+      },"image/jpeg",.7);
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* PASSWORD */
+
+function generatePassword(){
+
+  const length=Number(document.getElementById("passwordLength").value)||16;
+
+  const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+
+  let password="";
+
+  for(let i=0;i<length;i++){
+    password+=chars[Math.floor(Math.random()*chars.length)];
+  }
+
+  document.getElementById("passwordResult").innerHTML=
+    `<strong>${password}</strong>`;
+}
+
+
+/* WORD COUNTER */
+
+function countWords(){
+
+  const text=document.getElementById("counterText").value;
+
+  const words=text.trim()?text.trim().split(/\s+/).length:0;
+  const chars=text.length;
+  const sentences=text.split(/[.!?]+/).filter(x=>x.trim()).length;
+
+  document.getElementById("counterResult").innerHTML=
+    `Words: ${words}<br>Characters: ${chars}<br>Sentences: ${sentences}`;
+}
+
+
+/* AGE */
+
+function calculateAge(){
+
+  const value=document.getElementById("birthDate").value;
+
+  if(!value)return;
+
+  const birth=new Date(value);
+  const today=new Date();
+
+  let age=today.getFullYear()-birth.getFullYear();
+
+  const month=today.getMonth()-birth.getMonth();
+
+  if(month<0 || (month===0 && today.getDate()<birth.getDate())){
+    age--;
+  }
+
+  document.getElementById("ageResult").innerHTML=
+    `Your age is <strong>${age} years</strong>.`;
+}
+
+
+/* BMI */
+
+function calculateBMI(){
+
+  const weight=Number(document.getElementById("bmiWeight").value);
+  const height=Number(document.getElementById("bmiHeight").value)/100;
+
+  if(!weight || !height){
+    document.getElementById("bmiResult").innerHTML="Enter valid values.";
+    return;
+  }
+
+  const bmi=weight/(height*height);
+
+  document.getElementById("bmiResult").innerHTML=
+    `Your BMI is <strong>${bmi.toFixed(1)}</strong>.`;
+}
+
+
+/* UNIT */
+
+function convertUnit(){
+
+  const v=Number(document.getElementById("unitValue").value);
+  const type=document.getElementById("unitType").value;
+
+  const rates={
+    "km-mi":0.621371,
+    "mi-km":1.60934,
+    "kg-lb":2.20462,
+    "lb-kg":0.453592,
+    "cm-in":0.393701,
+    "in-cm":2.54
+  };
+
+  document.getElementById("unitResult").innerHTML=
+    `<strong>${(v*rates[type]).toFixed(3)}</strong>`;
+}
+
+
+/* RESIZER */
+
+function resizeImage(){
+
+  const file=document.getElementById("resizeFile").files[0];
+  const width=Number(document.getElementById("resizeWidth").value);
+  const result=document.getElementById("resizeResult");
+
+  if(!file || !width){
+    result.innerHTML="Select an image and enter width.";
+    return;
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=e=>{
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+      const canvas=document.createElement("canvas");
+      const ratio=width/img.width;
+
+      canvas.width=width;
+      canvas.height=img.height*ratio;
+
+      canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
+
+      canvas.toBlob(blob=>{
+
+        const url=URL.createObjectURL(blob);
+
+        result.innerHTML=
+          `<a class="download" href="${url}" download="resized-image.jpg">Download Resized Image</a>`;
+
+      },"image/jpeg",.9);
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* JPG TO PNG */
+
+function convertPNG(){
+
+  const file=document.getElementById("pngFile").files[0];
+  const result=document.getElementById("pngResult");
+
+  if(!file){
+    result.innerHTML="Select a JPG image.";
+    return;
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=e=>{
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+      const canvas=document.createElement("canvas");
+
+      canvas.width=img.width;
+      canvas.height=img.height;
+
+      canvas.getContext("2d").drawImage(img,0,0);
+
+      canvas.toBlob(blob=>{
+
+        const url=URL.createObjectURL(blob);
+
+        result.innerHTML=
+          `<a class="download" href="${url}" download="converted.png">Download PNG</a>`;
+
+      },"image/png");
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* IMAGE TO PDF */
+
+function imageToPDF(){
+
+  const file=document.getElementById("pdfImage").files[0];
+
+  if(!file){
+    document.getElementById("pdfImageResult").innerHTML="Select an image first.";
+    return;
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=e=>{
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+      const canvas=document.createElement("canvas");
+
+      canvas.width=img.width;
+      canvas.height=img.height;
+
+      canvas.getContext("2d").drawImage(img,0,0);
+
+      const data=canvas.toDataURL("image/jpeg",.9);
+
+      const win=window.open();
+
+      win.document.write(`
+        <html>
+        <head><title>Imran Tools PDF</title></head>
+        <body style="margin:0;text-align:center">
+        <img src="${data}" style="max-width:100%">
+        <script>window.print();<\/script>
+        </body>
+        </html>
+      `);
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* LOAN / EMI */
+
+function calculateLoan(){
+
+  const P=Number(document.getElementById("loanAmount").value);
+  const annual=Number(document.getElementById("loanRate").value);
+  const years=Number(document.getElementById("loanYears").value);
+
+  if(!P || !years){
+    document.getElementById("loanResult").innerHTML="Enter valid values.";
+    return;
+  }
+
+  const r=annual/12/100;
+  const n=years*12;
+
+  let emi;
+
+  if(r===0){
+    emi=P/n;
+  }else{
+    emi=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  }
+
+  document.getElementById("loanResult").innerHTML=
+    `Monthly payment: <strong>${emi.toFixed(2)}</strong><br>
+     Total payment: <strong>${(emi*n).toFixed(2)}</strong>`;
+}
+
+
+/* SPEECH */
+
+function speakText(){
+
+  const text=document.getElementById("speechText").value;
+
+  if(!text)return;
+
+  speechSynthesis.cancel();
+
+  const speech=new SpeechSynthesisUtterance(text);
+
+  speechSynthesis.speak(speech);
+}
+
+
+function startSpeech(){
+
+  const SpeechRecognition=
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if(!SpeechRecognition){
+    document.getElementById("speechResult").value=
+      "Speech recognition is not supported by this browser.";
+    return;
+  }
+
+  const recognition=new SpeechRecognition();
+
+  recognition.lang="en-US";
+  recognition.interimResults=true;
+
+  recognition.onresult=e=>{
+
+    let text="";
+
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      text+=e.results[i][0].transcript;
+    }
+
+    document.getElementById("speechResult").value=text;
+  };
+
+  recognition.start();
+}
+
+
+/* QR GENERATOR */
+
+function generateQR(){
+
+  const text=document.getElementById("qrText").value;
+  const result=document.getElementById("qrResult");
+
+  if(!text){
+    result.innerHTML="Enter text or a URL first.";
+    return;
+  }
+
+  const qrURL=
+    "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+
+    encodeURIComponent(text);
+
+  result.innerHTML=
+    `<img src="${qrURL}" alt="QR Code" style="max-width:250px">
+     <br>
+     <a class="download" href="${qrURL}" target="_blank">Open QR Image</a>`;
+}
+
+
+/* CURRENCY
+   Example rates only. For live rates an API is required.
+*/
+
+function convertCurrency(){
+
+  const amount=Number(document.getElementById("currencyAmount").value);
+  const from=document.getElementById("currencyFrom").value;
+  const to=document.getElementById("currencyTo").value;
+
+  const rates={
+    USD:1,
+    EUR:.92,
+    GBP:.79,
+    PKR:280
+  };
+
+  const usd=amount/rates[from];
+  const result=usd*rates[to];
+
+  document.getElementById("currencyResult").innerHTML=
+    `<strong>${result.toFixed(2)} ${to}</strong>`;
+}
+
+
+/* QR SCANNER */
+
+function scanQR(){
+
+  const result=document.getElementById("scannerResult");
+
+  if("BarcodeDetector" in window){
+
+    result.innerHTML=
+      "QR scanner support is available in this browser. Camera permission may be required.";
+
+  }else{
+
+    result.innerHTML=
+      "QR camera scanning is not supported by this browser. Try Chrome on a supported device.";
+
+  }
+}
+
+
+/* IMAGE CROP */
+
+function cropImage(){
+
+  const file=document.getElementById("cropFile").files[0];
+  const result=document.getElementById("cropResult");
+
+  if(!file){
+    result.innerHTML="Select an image first.";
+    return;
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=e=>{
+
+    const img=new Image();
+
+    img.onload=()=>{
+
+      const size=Math.min(img.width,img.height);
+
+      const canvas=document.createElement("canvas");
+
+      canvas.width=size;
+      canvas.height=size;
+
+      canvas.getContext("2d").drawImage(
+        img,
+        (img.width-size)/2,
+        (img.height-size)/2,
+        size,
+        size,
+        0,
+        0,
+        size,
+        size
+      );
+
+      canvas.toBlob(blob=>{
+
+        const url=URL.createObjectURL(blob);
+
+        result.innerHTML=
+          `<a class="download" href="${url}" download="cropped-image.jpg">Download Cropped Image</a>`;
+
+      },"image/jpeg",.9);
+    };
+
+    img.src=e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+
+/* IMAGE TO TEXT NOTICE */
+
+function imageTextNotice(){
+
+  document.getElementById("ocrResult").innerHTML=
+    "Image selected. Full OCR requires an OCR engine such as Tesseract.js.";
+}
+
+
+/* CONTACT */
+
+function sendMessage(event){
+
+  event.preventDefault();
+
+  const name=document.getElementById("contactName").value;
+
+  alert(
+    "Thank you "+name+"! Your message form is working."
+  );
+}
+
+
+/* CLOSE MODAL ON BACKGROUND */
+
+document.getElementById("toolModal").addEventListener("click",function(e){
+
+  if(e.target===this){
+    closeTool();
+  }
+
+});
+
 </script>
+
 </body>
 </html>
+```
