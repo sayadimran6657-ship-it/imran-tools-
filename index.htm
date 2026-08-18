@@ -1221,38 +1221,6 @@ function convertCurrency(){
 }
 
 
-/* QR SCANNER */
-
-function scanQR(){
-
-  const result = document.getElementById("scannerResult");
-
-  result.innerHTML = `
-    <p>QR Scanner شروع ہو رہا ہے...</p>
-    <video id="qrVideo" autoplay playsinline
-      style="width:100%;max-width:400px;border-radius:12px;"></video>
-    <br><br>
-    <button class="tool-btn" onclick="stopQRScanner()">Stop Scanner</button>
-  `;
-
-  const video = document.getElementById("qrVideo");
-
-  navigator.mediaDevices.getUserMedia({
-    video: { facingMode: "environment" }
-  })
-  .then(stream => {
-
-    window.qrStream = stream;
-    video.srcObject = stream;
-
-  })
-  .catch(error => {
-
-    result.innerHTML =
-      "Camera access نہیں ہو سکا۔ Browser میں Camera Permission Allow کرو۔";
-
-  });
-}
 
 /* QR SCANNER */
 
