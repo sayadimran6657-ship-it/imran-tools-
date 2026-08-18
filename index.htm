@@ -1271,7 +1271,25 @@ document.getElementById("toolModal").addEventListener("click",function(e){
 });
 
 </script>
+<script>
+document.querySelectorAll(".tool-btn").forEach(function(button) {
 
+  button.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const card = button.closest(".tool-card");
+    const title = card.querySelector("h3").innerText;
+
+    if (title === "Image Compressor") {
+      window.location.href = "image-compressor.html";
+      return;
+    }
+
+    alert(title + " tool is coming soon!");
+  });
+
+});
+</script>
 </body>
 </html>
 ```
