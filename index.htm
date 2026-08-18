@@ -538,7 +538,50 @@ footer{
 function closeTool(){
   document.getElementById("toolModal").classList.remove("show");
 }
+async function mergePDFs() {
+  const files = document.getElementById("pdfMergeFiles").files;
+  const result = document.getElementById("pdfMergeResult");
 
+  if (files.length < 2) {
+    result.innerHTML = "براہِ کرم کم از کم 2 PDF فائلیں منتخب کریں۔";
+    return;
+  }
+
+  try {
+    const mergedPdf = await PDFLib.PDFDocument.create();
+
+    for (const file of files) {
+      const bytes = await file.arrayBuffer();
+      const pdf = await PDFLib.PDFDocument.load(bytes);
+
+      const pages = await mergedPdf.copyPages(
+        pdf,
+        pdf.getPageIndices()
+      );
+
+      pages.forEach(page => mergedPdf.addPage(page));
+    }
+
+    const mergedBytes = await mergedPdf.save();
+
+    const blob = new Blob([mergedBytes], {
+      type: "application/pdf"
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    result.innerHTML = `
+      <strong>PDFs successfully merged!</strong><br><br>
+      <a class="download" href="${url}" download="merged.pdf">
+        Download Merged PDF
+      </a>
+    `;
+
+  } catch (error) {
+    result.innerHTML = "PDF merge نہیں ہو سکا۔";
+    console.error(error);
+  }
+}
 function openTool(name){
 
   const content=document.getElementById("toolContent");
@@ -700,13 +743,30 @@ function openTool(name){
       <input class="tool-input" type="file" accept="image/*" onchange="imageTextNotice()">
       <div class="result" id="ocrResult">Image selected for text extraction.</div>`;
   }
+else if(name==="PDF Merger"){
+  content.innerHTML=`
+    <h2>📑 PDF Merger</h2>
 
-  else{
-    content.innerHTML=`
-      <h2>${name}</h2>
-      <p>This tool is ready to be connected with its advanced processing engine.</p>
-      <div class="result">The button is working and the tool window opened successfully.</div>`;
-  }
+    <p>دو یا زیادہ PDF فائلیں منتخب کریں:</p>
+
+    <input
+      class="tool-input"
+      type="file"
+      id="pdfMergeFiles"
+      accept="application/pdf"
+      multiple
+    >
+
+    <br><br>
+
+    <button class="tool-btn" onclick="mergePDFs()">
+      Merge PDFs
+    </button>
+
+    <div class="result" id="pdfMergeResult"></div>
+  `;
+}
+
 
   document.getElementById("toolModal").classList.add("show");
 }
@@ -1273,4 +1333,4 @@ document.getElementById("toolModal").addEventListener("click",function(e){
 </script>
 </body>
 </html>
-```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
