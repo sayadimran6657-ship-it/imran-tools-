@@ -1329,7 +1329,46 @@ document.getElementById("toolModal").addEventListener("click",function(e){
   }
 
 });
+async function mergePDFs(){
 
+  const files = document.getElementById("pdfMergeFiles").files;
+  const result = document.getElementById("pdfMergeResult");
+
+  if(files.length < 2){
+    result.innerHTML = "Please select at least 2 PDF files.";
+    return;
+  }
+
+  try{
+    const mergedPdf = await PDFLib.PDFDocument.create();
+
+    for(const file of files){
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await PDFLib.PDFDocument.load(arrayBuffer);
+
+      const pages = await mergedPdf.copyPages(
+        pdf,
+        pdf.getPageIndices()
+      );
+
+      pages.forEach(page => mergedPdf.addPage(page));
+    }
+
+    const pdfBytes = await mergedPdf.save();
+    const blob = new Blob([pdfBytes], {type:"application/pdf"});
+    const url = URL.createObjectURL(blob);
+
+    result.innerHTML = `
+      <strong>PDFs merged successfully!</strong><br>
+      <a class="download" href="${url}" download="merged-pdf.pdf">
+        Download Merged PDF
+      </a>
+    `;
+
+  }catch(error){
+    result.innerHTML = "Error merging PDFs.";
+  }
+}
 </script>
 </body>
 </html>
