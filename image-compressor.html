@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Image Compressor | Imran Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 35px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #64748b;
+      margin-bottom: 30px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 15px;
+      border: 2px dashed #2563eb;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #result {
+      margin-top: 25px;
+    }
+
+    .download {
+      display: inline-block;
+      margin-top: 15px;
+      background: #16a34a;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 25px;
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h2>Imran Tools</h2>
+  </div>
+
+  <div class="container">
+
+    <div class="box">
+
+      <h1>Image Compressor</h1>
+
+      <p class="description">
+        Compress your image directly in your browser.
+      </p>
+
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+      >
+
+      <br>
+
+      <button onclick="compressImage()">
+        Compress Image
+      </button>
+
+      <div id="result"></div>
+
+      <a href="index.html" class="back">
+        ← Back to Imran Tools
+      </a>
+
+    </div>
+
+  </div>
+
+<script>
+
+function compressImage() {
+
+  const input = document.getElementById("imageInput");
+  const result = document.getElementById("result");
+
+  if (!input.files.length) {
+    result.innerHTML =
+      "<p>Please select an image first.</p>";
+    return;
+  }
+
+  const file = input.files[0];
+
+  const reader = new FileReader();
+
+  reader.onload = function(event) {
+
+    const img = new Image();
+
+    img.onload = function() {
+
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      const maxWidth = 1200;
+
+      let width = img.width;
+      let height = img.height;
+
+      if (width > maxWidth) {
+
+        height =
+          height * (maxWidth / width);
+
+        width = maxWidth;
+
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+      );
+
+      canvas.toBlob(
+        function(blob) {
+
+          const downloadURL =
+            URL.createObjectURL(blob);
+
+          const originalSize =
+            (file.size / 1024).toFixed(1);
+
+          const newSize =
+            (blob.size / 1024).toFixed(1);
+
+          result.innerHTML = `
+
+            <p>
+              Original size:
+              <strong>${originalSize} KB</strong>
+            </p>
+
+            <p>
+              Compressed size:
+              <strong>${newSize} KB</strong>
+            </p>
+
+            <a
+              class="download"
+              href="${downloadURL}"
+              download="compressed-image.jpg"
+            >
+              Download Compressed Image
+            </a>
+
+          `;
+
+        },
+        "image/jpeg",
+        0.7
+      );
+
+    };
+
+    img.src = event.target.result;
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+</script>
+
+</body>
+</html>
