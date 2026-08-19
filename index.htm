@@ -360,7 +360,7 @@ footer{
       <div class="tool-icon">🖼️</div>
       <h3>Image Compressor</h3>
      <p>Compress and reduce image file size online while keeping good image quality. Free and easy image compressor tool.</p>
-      <button class="tool-btn" onclick="openTool('Image Compressor')">Open Tool</button>
+    <a class="tool-btn" href="image-compressor.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="QR Code Generator" data-category="other">
@@ -409,14 +409,14 @@ footer{
       <div class="tool-icon">📐</div>
       <h3>Image Resizer</h3>
       <p>Resize images online to your preferred dimensions with our free and easy-to-use image resizer tool.</p>
-      <button class="tool-btn" onclick="openTool('Image Resizer')">Open Tool</button>
+     <a class="tool-btn" href="image-resizer.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="Image to PDF" data-category="pdf">
       <div class="tool-icon">📄</div>
       <h3>Image to PDF</h3>
      <p>Convert images to PDF online quickly and easily with our free image to PDF converter tool.</p>
-      <button class="tool-btn" onclick="openTool('Image to PDF')">Open Tool</button>
+     <a class="tool-btn" href="pdf-merger.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="PDF Merger" data-category="pdf">
@@ -430,14 +430,14 @@ footer{
       <div class="tool-icon">✂️</div>
       <h3>PDF Splitter</h3>
      <p>Split PDF pages online and extract selected pages from a PDF quickly with our free PDF splitter tool.</p>
-      <button class="tool-btn" onclick="openTool('PDF Splitter')">Open Tool</button>
+     <a class="tool-btn" href="pdf-splitter.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="Image Cropper" data-category="image">
       <div class="tool-icon">📏</div>
       <h3>Image Cropper</h3>
      <p>Crop images online quickly and easily with our free image cropper tool.</p>
-      <button class="tool-btn" onclick="openTool('Image Cropper')">Open Tool</button>
+     <a class="tool-btn" href="image-cropper.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="JPG to PNG" data-category="image">
@@ -451,28 +451,28 @@ footer{
       <div class="tool-icon">💰</div>
       <h3>Currency Converter</h3>
      <p>Convert currencies online quickly and easily with our free currency converter tool.</p>
-      <button class="tool-btn" onclick="openTool('Currency Converter')">Open Tool</button>
+      <a class="tool-btn" href="currency-converter.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="Loan Calculator" data-category="calculator">
       <div class="tool-icon">🏦</div>
       <h3>Loan Calculator</h3>
      <p>Calculate monthly loan payments online with our free and easy-to-use loan calculator.</p>
-      <button class="tool-btn" onclick="openTool('Loan Calculator')">Open Tool</button>
+     <a class="tool-btn" href="loan-calculator.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="EMI Calculator" data-category="calculator">
       <div class="tool-icon">🔢</div>
       <h3>EMI Calculator</h3>
      <p>Calculate monthly EMI online with our free EMI calculator. Estimate your monthly loan payment quickly and easily.</p>
-      <button class="tool-btn" onclick="openTool('EMI Calculator')">Open Tool</button>
+     <a class="tool-btn" href="emi-calculator.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="Text to Speech" data-category="text">
       <div class="tool-icon">🔊</div>
       <h3>Text to Speech</h3>
     <p>Convert text to speech online with our free text-to-speech tool. Turn written text into natural spoken audio quickly.</p>
-      <button class="tool-btn" onclick="openTool('Text to Speech')">Open Tool</button>
+     <a class="tool-btn" href="text-to-speech.html">Open Tool</a>
     </div>
 
     <div class="tool-card" data-name="Speech to Text" data-category="text">
@@ -1497,6 +1497,8 @@ async function mergePDFs(){
     result.innerHTML = "Error merging PDFs.";
   }
 }
+</script>
+ 
 <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 </body>
 </html>
