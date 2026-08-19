@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+```html
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,65 +10,34 @@
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://sayadimran6657-ship-it.github.io/imran-tools-/jpg-to-png.html">
-</head>
 
-<body>
+  <!-- Open Graph -->
+  <meta property="og:title" content="JPG to PNG Converter Online | Free - Imran Tools">
+  <meta property="og:description" content="Convert JPG images to PNG online for free with Imran Tools. Fast and easy JPG to PNG converter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sayadimran6657-ship-it.github.io/imran-tools-/jpg-to-png.html">
 
-  <h1>JPG to PNG Converter</h1>
+  <!-- Twitter / Social Preview -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JPG to PNG Converter Online | Free - Imran Tools">
+  <meta name="twitter:description" content="Convert JPG images to PNG online for free with Imran Tools.">
 
-  <p>
-    Convert your JPG images to PNG format online for free.
-    Use our fast and simple JPG to PNG converter.
-  </p>
-
-  <input type="file" id="jpgFile" accept="image/jpeg,image/jpg">
-
-  <button onclick="convertToPNG()">Convert to PNG</button>
-
-  <div id="result"></div>
-
-  <script>
-    function convertToPNG() {
-      const file = document.getElementById("jpgFile").files[0];
-      const result = document.getElementById("result");
-
-      if (!file) {
-        result.innerHTML = "Please select a JPG image first.";
-        return;
-      }
-
-      const reader = new FileReader();
-
-      reader.onload = function(e) {
-        const img = new Image();
-
-        img.onload = function() {
-          const canvas = document.createElement("canvas");
-
-          canvas.width = img.width;
-          canvas.height = img.height;
-
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0);
-
-          canvas.toBlob(function(blob) {
-            const url = URL.createObjectURL(blob);
-
-            result.innerHTML = `
-              <p>Image converted successfully!</p>
-              <a href="${url}" download="converted.png">
-                Download PNG
-              </a>
-            `;
-          }, "image/png");
-        };
-
-        img.src = e.target.result;
-      };
-
-      reader.readAsDataURL(file);
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JPG to PNG Converter",
+    "url": "https://sayadimran6657-ship-it.github.io/imran-tools-/jpg-to-png.html",
+    "description": "Free online JPG to PNG converter by Imran Tools.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     }
+  }
   </script>
-
-</body>
-</html>
+</head>
+```
