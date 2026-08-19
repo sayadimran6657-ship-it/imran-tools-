@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="google-site-verification" content="iOXkA8GoxII8dhZnqNddy91BZ9CKF8nOTIGGtROoGmM" />
+  <title>PDF Merger - Imran Tools | Merge PDF Files Online</title>
+  <meta name="description" content="Free PDF Merger by Imran Tools. Combine two or more PDF files into one PDF online quickly and easily.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sayadimran6657-ship-it.github.io/imran-tools-/pdf-merger.html">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+    header{background:linear-gradient(135deg,#111827,#2563eb);color:white;padding:22px 7%;
+           box-shadow:0 5px 20px rgba(0,0,0,.15)}
+    .navbar{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:27px;font-weight:800;text-decoration:none;color:white}
+    .logo span{color:#93c5fd}
+    nav a{color:white;text-decoration:none;margin-left:22px;font-size:15px}
+    .hero{min-height:360px;display:flex;align-items:center;justify-content:center;text-align:center;
+          padding:60px 20px;background:linear-gradient(135deg,#eff6ff,#fff)}
+    .hero-content{max-width:800px}
+    .hero h1{font-size:clamp(38px,7vw,60px);margin-bottom:18px}
+    .hero h1 span{color:#2563eb}
+    .hero p{font-size:18px;line-height:1.7;color:#64748b;margin-bottom:25px}
+    .section{max-width:850px;margin:auto;padding:55px 20px}
+    .merger-box{background:white;padding:35px;border-radius:22px;box-shadow:0 10px 30px rgba(15,23,42,.08);
+                border:1px solid #e5e7eb;text-align:center}
+    .merger-box h2{margin-bottom:12px}
+    .merger-box p{color:#64748b;margin-bottom:20px}
+    .tool-input{width:100%;padding:14px;margin:10px 0;border:1px solid #d1d5db;border-radius:10px}
+    .tool-btn{display:inline-block;border:none;background:#2563eb;color:white;padding:12px 20px;
+              border-radius:10px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+    .tool-btn:hover{background:#1d4ed8}
+    .result{margin-top:20px;padding:15px;background:#f8fafc;border-radius:12px;line-height:1.7}
+    .download{display:inline-block;margin-top:12px;padding:11px 18px;background:#16a34a;color:white;
+              text-decoration:none;border-radius:10px}
+    .back{display:inline-block;margin-top:20px;color:#2563eb;text-decoration:none;font-weight:bold}
+    .info{margin-top:30px;text-align:left;background:#f8fafc;padding:25px;border-radius:16px}
+    .info h2{margin-bottom:12px}
+    .info p{color:#475569;line-height:1.7;margin-bottom:12px}
+    footer{background:#111827;color:white;text-align:center;padding:35px 20px;margin-top:30px}
+    @media(max-width:700px){nav{display:none}.merger-box{padding:25px}}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="logo">Imran <span>Tools</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>PDF <span>Merger</span></h1>
+    <p>Combine two or more PDF files into one PDF quickly and easily with Imran Tools.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="merger-box">
+    <h2>📑 Merge PDF Files</h2>
+    <p>Select at least two PDF files and combine them into a single PDF.</p>
+
+    <input class="tool-input" type="file" id="pdfMergeFiles" accept="application/pdf" multiple>
+
+    <button class="tool-btn" onclick="mergePDFs()">Merge PDFs</button>
+
+    <div class="result" id="pdfMergeResult"></div>
+
+    <a class="back" href="index.html">← Back to Imran Tools</a>
+  </div>
+
+  <div class="info">
+    <h2>About PDF Merger</h2>
+    <p>Imran Tools PDF Merger is a free online tool for combining multiple PDF files into one PDF document.</p>
+    <p>Select your PDF files, click “Merge PDFs”, and download the merged document.</p>
+  </div>
+</section>
+
+<footer>
+  <h2>Imran Tools</h2>
+  <p style="color:#9ca3af;margin:12px 0">Free • Fast • Simple Online Tools</p>
+  <p style="color:#6b7280;font-size:14px">© 2026 Imran Tools. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+<script>
+async function mergePDFs(){
+  const files = document.getElementById("pdfMergeFiles").files;
+  const result = document.getElementById("pdfMergeResult");
+
+  if(files.length < 2){
+    result.innerHTML = "Please select at least 2 PDF files.";
+    return;
+  }
+
+  try{
+    result.innerHTML = "Merging PDFs...";
+
+    const mergedPdf = await PDFLib.PDFDocument.create();
+
+    for(const file of files){
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await PDFLib.PDFDocument.load(arrayBuffer);
+      const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+      pages.forEach(page => mergedPdf.addPage(page));
+    }
+
+    const pdfBytes = await mergedPdf.save();
+    const blob = new Blob([pdfBytes], {type:"application/pdf"});
+    const url = URL.createObjectURL(blob);
+
+    result.innerHTML = `
+      <strong>PDFs merged successfully! ✅</strong><br>
+      <a class="download" href="${url}" download="merged-pdf.pdf">
+        Download Merged PDF
+      </a>
+    `;
+  }catch(error){
+    console.error(error);
+    result.innerHTML = "Error merging PDFs. Please try again.";
+  }
+}
+</script>
+
+</body>
+</html>
